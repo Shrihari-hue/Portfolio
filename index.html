@@ -257,7 +257,7 @@
     position:relative;
     min-height:100vh;
     display:flex;
-    align-items:flex-end;
+    align-items:flex-start;
     background:var(--bg);
   }
   .hero-media{
@@ -289,17 +289,10 @@
     position:absolute;
     inset:0;
     z-index:1;
-    background:
-      radial-gradient(115% 125% at 14% 46%, rgba(11,10,9,0.98) 0%, rgba(11,10,9,0.94) 30%, rgba(11,10,9,0.74) 52%, rgba(11,10,9,0.4) 70%, rgba(11,10,9,0.1) 86%, rgba(11,10,9,0) 96%),
-      linear-gradient(180deg, rgba(11,10,9,0.4) 0%, rgba(11,10,9,0) 16%, rgba(11,10,9,0) 68%, rgba(11,10,9,0.96) 100%);
+    background:linear-gradient(180deg, rgba(11,10,9,0.94) 0%, rgba(11,10,9,0.8) 22%, rgba(11,10,9,0.4) 40%, rgba(11,10,9,0) 56%, rgba(11,10,9,0) 78%, rgba(11,10,9,0.92) 100%);
   }
 
-  .hero-content{
-    position:relative;
-    z-index:2;
-    max-width:660px;
-    padding:0 0 72px;
-  }
+  /* ---------- Shared eyebrow + button styles (used across sections) ---------- */
   .eyebrow{
     font-family:'JetBrains Mono',monospace;
     font-size:12px;
@@ -318,27 +311,6 @@
     background:var(--accent);
     display:inline-block;
     box-shadow:0 0 0 4px rgba(var(--accent-rgb),0.18);
-  }
-  .hero h1{
-    font-size:clamp(30px,4vw,52px);
-    font-weight:800;
-    letter-spacing:-0.02em;
-    line-height:1.12;
-    text-shadow:0 2px 24px rgba(0,0,0,0.35);
-  }
-  .hero h1 .accent{color:var(--accent);}
-  .hero-sub{
-    margin-top:16px;
-    font-size:clamp(15px,1.6vw,17px);
-    color:var(--paper-dim);
-    max-width:480px;
-    text-shadow:0 1px 12px rgba(0,0,0,0.4);
-  }
-  .hero-ctas{
-    display:flex;
-    flex-wrap:wrap;
-    gap:16px;
-    margin-top:28px;
   }
   .btn{
     font-family:'JetBrains Mono',monospace;
@@ -362,29 +334,59 @@
     color:var(--paper);
   }
   .btn-ghost:hover{border-color:var(--paper);}
-  .hero-stats{
+
+  /* ---------- Intro (text block anchored under the nav, over the video) ---------- */
+  .intro-content{
+    position:relative;
+    z-index:2;
+    max-width:640px;
+    padding:130px 0 0;
+  }
+  .intro-content h1{
+    font-size:clamp(30px,4vw,50px);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:1.12;
+    text-shadow:0 2px 20px rgba(0,0,0,0.4);
+  }
+  .intro-content h1 .accent{color:var(--accent);}
+  .intro-sub{
+    margin-top:18px;
+    font-size:clamp(16px,1.8vw,19px);
+    color:var(--paper-dim);
+    max-width:500px;
+    text-shadow:0 1px 12px rgba(0,0,0,0.4);
+  }
+  .intro-ctas{
     display:flex;
-    gap:40px;
+    flex-wrap:wrap;
+    gap:16px;
     margin-top:32px;
   }
-  .hero-stat{
+  .intro-stats{
+    display:flex;
+    gap:40px;
+    margin-top:48px;
+  }
+  .intro-stat{
     display:flex;
     flex-direction:column;
     gap:4px;
   }
-  .hero-stat .num{
+  .intro-stat .num{
     font-family:'JetBrains Mono',monospace;
     font-size:22px;
     font-weight:600;
     color:var(--paper);
   }
-  .hero-stat .label{
+  .intro-stat .label{
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
     letter-spacing:.06em;
     color:var(--gray);
     text-transform:uppercase;
   }
+
   .scroll-cue{
     position:absolute;
     bottom:36px;
@@ -918,12 +920,7 @@
     .nav-toggle{display:flex;}
     .hero-media video,
     .hero-media img.poster{object-position:60% 15%;}
-    .hero-scrim{
-      background:
-        linear-gradient(180deg, rgba(11,10,9,0.3) 0%, rgba(11,10,9,0.35) 30%, rgba(11,10,9,0.55) 55%, var(--bg) 88%),
-        linear-gradient(90deg, rgba(11,10,9,0.55) 0%, rgba(11,10,9,0.2) 60%, rgba(11,10,9,0.1) 100%);
-    }
-    .hero-content{padding-top:120px;}
+    .intro-content{padding:110px 0 0;}
     .about-cols{grid-template-columns:1fr;gap:36px;}
     section{padding:80px 0;}
     .section-note{text-align:left;max-width:100%;}
@@ -970,28 +967,28 @@
       <video id="heroVideo" muted autoplay loop playsinline preload="auto" poster="hero-poster.jpg">
         <source src="hero-video.mp4" type="video/mp4">
       </video>
-      <img class="poster" src="hero-poster.jpg" alt="">
+      <img class="poster" src="hero-poster.jpg" alt="Shree">
     </div>
     <div class="hero-scrim"></div>
     <div class="wrap">
-      <div class="hero-content">
+      <div class="intro-content">
         <div class="eyebrow">Ujire, India — CA Aspirant &amp; Product Builder</div>
         <h1>Where <span class="accent">finance</span> meets <span class="accent">technology</span>, and ideas become products.</h1>
-        <p class="hero-sub">I'm Shree — training to be a Chartered Accountant, while designing and building digital products powered by AI, code, and a finance-first way of thinking.</p>
-        <div class="hero-ctas">
+        <p class="intro-sub">I'm Shree — training to be a Chartered Accountant, while designing and building digital products powered by AI, code, and a finance-first way of thinking.</p>
+        <div class="intro-ctas">
           <a href="#work" class="btn btn-primary" data-magnetic>View Work →</a>
           <a href="#contact" class="btn btn-ghost" data-magnetic>Get in Touch</a>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
+        <div class="intro-stats">
+          <div class="intro-stat">
             <span class="num mono">CA</span>
             <span class="label">In training</span>
           </div>
-          <div class="hero-stat">
+          <div class="intro-stat">
             <span class="num mono">8+</span>
             <span class="label">Projects &amp; ideas</span>
           </div>
-          <div class="hero-stat">
+          <div class="intro-stat">
             <span class="num mono">IN</span>
             <span class="label">Based in Ujire</span>
           </div>
