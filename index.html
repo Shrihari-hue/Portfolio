@@ -255,18 +255,15 @@
   /* ---------- Hero ---------- */
   .hero{
     position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:flex-start;
     background:var(--bg);
   }
   .hero-media{
-    position:absolute;
-    top:0;right:0;
+    position:relative;
     width:100%;
     max-width:1300px;
-    height:100%;
-    z-index:0;
+    margin-left:auto;
+    height:68vh;
+    min-height:420px;
     overflow:hidden;
     will-change:transform;
   }
@@ -277,7 +274,7 @@
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:58% 20%;
+    object-position:58% 22%;
     transition:opacity .6s ease;
   }
   .hero-media video{opacity:1;}
@@ -285,11 +282,18 @@
   .hero-media.fallback img.poster{opacity:1;z-index:1;}
   .hero-media.fallback video{opacity:0;}
 
-  .hero-scrim{
-    position:absolute;
-    inset:0;
-    z-index:1;
-    background:linear-gradient(180deg, rgba(11,10,9,0.94) 0%, rgba(11,10,9,0.8) 22%, rgba(11,10,9,0.4) 40%, rgba(11,10,9,0) 56%, rgba(11,10,9,0) 78%, rgba(11,10,9,0.92) 100%);
+  .hero-band{
+    width:100%;
+    background:var(--bg);
+    border-top:1px solid var(--line-strong);
+    padding:40px 0 48px;
+  }
+  .hero-band-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    flex-wrap:wrap;
   }
 
   /* ---------- Shared eyebrow + button styles (used across sections) ---------- */
@@ -335,33 +339,28 @@
   }
   .btn-ghost:hover{border-color:var(--paper);}
 
-  /* ---------- Intro (text block anchored under the nav, over the video) ---------- */
+  /* ---------- Intro (text block inside the bottom band) ---------- */
   .intro-content{
-    position:relative;
-    z-index:2;
     max-width:640px;
-    padding:130px 0 0;
   }
   .intro-content h1{
-    font-size:clamp(30px,4vw,50px);
+    font-size:clamp(26px,3.2vw,42px);
     font-weight:800;
     letter-spacing:-0.02em;
-    line-height:1.12;
-    text-shadow:0 2px 20px rgba(0,0,0,0.4);
+    line-height:1.16;
   }
   .intro-content h1 .accent{color:var(--accent);}
   .intro-sub{
-    margin-top:18px;
-    font-size:clamp(16px,1.8vw,19px);
+    margin-top:14px;
+    font-size:clamp(14px,1.4vw,16px);
     color:var(--paper-dim);
-    max-width:500px;
-    text-shadow:0 1px 12px rgba(0,0,0,0.4);
+    max-width:520px;
   }
   .intro-ctas{
     display:flex;
     flex-wrap:wrap;
     gap:16px;
-    margin-top:32px;
+    margin-top:24px;
   }
   .intro-stats{
     display:flex;
@@ -388,18 +387,16 @@
   }
 
   .scroll-cue{
-    position:absolute;
-    bottom:36px;
-    left:clamp(24px,5vw,64px);
-    z-index:2;
     display:flex;
     align-items:center;
     gap:10px;
+    flex-shrink:0;
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
     letter-spacing:.08em;
     color:var(--gray);
     text-transform:uppercase;
+    padding-bottom:4px;
   }
   .scroll-cue .line{
     width:32px;height:1px;
@@ -920,7 +917,8 @@
     .nav-toggle{display:flex;}
     .hero-media video,
     .hero-media img.poster{object-position:60% 15%;}
-    .intro-content{padding:110px 0 0;}
+    .hero-media{height:52vh;min-height:320px;}
+    .hero-band-row{align-items:flex-start;}
     .about-cols{grid-template-columns:1fr;gap:36px;}
     section{padding:80px 0;}
     .section-note{text-align:left;max-width:100%;}
@@ -969,33 +967,22 @@
       </video>
       <img class="poster" src="hero-poster.jpg" alt="Shree">
     </div>
-    <div class="hero-scrim"></div>
-    <div class="wrap">
-      <div class="intro-content">
-        <div class="eyebrow">Ujire, India — CA Aspirant &amp; Product Builder</div>
-        <h1>Where <span class="accent">finance</span> meets <span class="accent">technology</span>, and ideas become products.</h1>
-        <p class="intro-sub">I'm Shree — training to be a Chartered Accountant, while designing and building digital products powered by AI, code, and a finance-first way of thinking.</p>
-        <div class="intro-ctas">
-          <a href="#work" class="btn btn-primary" data-magnetic>View Work →</a>
-          <a href="#contact" class="btn btn-ghost" data-magnetic>Get in Touch</a>
-        </div>
-        <div class="intro-stats">
-          <div class="intro-stat">
-            <span class="num mono">CA</span>
-            <span class="label">In training</span>
+    <div class="hero-band">
+      <div class="wrap">
+        <div class="hero-band-row">
+          <div class="intro-content">
+            <div class="eyebrow">Ujire, India — CA Aspirant &amp; Product Builder</div>
+            <h1>Where <span class="accent">finance</span> meets <span class="accent">technology</span>, and ideas become products.</h1>
+            <p class="intro-sub">I'm Shree — training to be a Chartered Accountant, while designing and building digital products powered by AI, code, and a finance-first way of thinking.</p>
+            <div class="intro-ctas">
+              <a href="#work" class="btn btn-primary" data-magnetic>View Work →</a>
+              <a href="#contact" class="btn btn-ghost" data-magnetic>Get in Touch</a>
+            </div>
           </div>
-          <div class="intro-stat">
-            <span class="num mono">8+</span>
-            <span class="label">Projects &amp; ideas</span>
-          </div>
-          <div class="intro-stat">
-            <span class="num mono">IN</span>
-            <span class="label">Based in Ujire</span>
-          </div>
+          <div class="scroll-cue"><span class="line"></span>Scroll</div>
         </div>
       </div>
     </div>
-    <div class="scroll-cue"><span class="line"></span>Scroll</div>
   </section>
 
   <section id="about">
