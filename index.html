@@ -457,6 +457,12 @@
   .contact{text-align:center;}
   .contact h2{font-family:var(--serif);font-size:clamp(34px,7vw,72px);font-weight:500;letter-spacing:-0.01em;max-width:900px;margin:0 auto 48px;line-height:1.1;}
   .contact .btn-primary{padding:20px 44px;font-size:14px;}
+  .contact-links{
+    display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:32px;
+    font-family:var(--mono);font-size:14px;color:var(--paper-dim);
+  }
+  .contact-links a{transition:color .25s ease;}
+  .contact-links a:hover{color:var(--accent);}
 
   /* ---------- Footer ---------- */
   footer{padding:48px 0;}
@@ -464,6 +470,9 @@
   .footer-left{display:flex;flex-direction:column;gap:6px;}
   .footer-left .logo{font-size:14px;}
   .footer-left p{font-size:13px;color:var(--gray);}
+  .footer-links{display:flex;gap:24px;font-family:var(--mono);font-size:13px;color:var(--paper-dim);}
+  .footer-links a{transition:color .25s ease;}
+  .footer-links a:hover{color:var(--accent);}
   .back-top{font-family:var(--mono);font-size:12px;color:var(--gray);border:1px solid var(--line);padding:10px 16px;border-radius:100px;transition:border-color .3s ease, color .3s ease;}
   .back-top:hover{border-color:var(--paper-dim);color:var(--paper);}
 
@@ -691,7 +700,7 @@
         <a href="https://ostrichinteriors.com" target="_blank" rel="noopener" class="case-flag">Live at ostrichinteriors.com ↗</a>
 
         <div class="case-visual case-visual-photo spotlight">
-          <img src="ostrich-lemontree.jpg" alt="LemonTree Coorg — villa and hospitality project by Ost-Rich Interiors" loading="lazy">
+          <img src="ostrich-manifesto.jpg" alt="Ost-Rich Interiors — manifesto: luxury should feel enveloping, not performative" loading="lazy">
         </div>
 
         <div class="case-details">
@@ -854,7 +863,11 @@
     <div class="wrap">
       <span class="section-eyebrow reveal" style="justify-content:center;">05 — Contact</span>
       <h2 class="reveal">Have something worth building?</h2>
-      <a href="#contact" class="btn btn-primary reveal" data-magnetic id="contactCta">Let's talk →</a>
+      <a href="mailto:shriharik99@gmail.com" class="btn btn-primary reveal" data-magnetic id="contactCta">Let's talk →</a>
+      <div class="contact-links reveal">
+        <a href="mailto:shriharik99@gmail.com">shriharik99@gmail.com</a>
+        <a href="https://www.linkedin.com/in/itsshree" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
     </div>
   </section>
 
@@ -866,6 +879,10 @@
       <div class="footer-left">
         <a href="#top" class="logo">SHREE<span>.</span></a>
         <p>Finance × Technology × AI × Product — Ujire, India.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:shriharik99@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/itsshree" target="_blank" rel="noopener">LinkedIn</a>
       </div>
       <a href="#top" class="back-top">Back to top ↑</a>
     </div>
