@@ -351,6 +351,31 @@
 
   .case-visual-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;}
 
+  .case-status{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);border:1px solid var(--line-strong);padding:5px 12px;border-radius:100px;margin-bottom:56px;}
+  .case-status-dot{width:6px;height:6px;border-radius:50%;background:var(--gray);}
+
+  /* ---------- Work groups (Completed / In Active Build) ---------- */
+  .work-group + .work-group{margin-top:140px;}
+  .work-group-label{display:flex;align-items:center;gap:20px;margin-bottom:56px;}
+  .work-group-label span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim);white-space:nowrap;}
+  .work-group-rule{flex:1;height:1px;background:var(--line);}
+
+  /* ---------- Multi-frame case visual (gallery) ---------- */
+  .case-visual.case-visual-gallery{display:block;background:none;padding:0;}
+  .gallery-track{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;}
+  .gallery-track::-webkit-scrollbar{display:none;}
+  .gallery-frame{flex:0 0 100%;height:100%;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;background:var(--bg-elevated);}
+  .gallery-frame-bar{flex-shrink:0;display:flex;align-items:center;gap:6px;padding:11px 16px;background:var(--bg-elevated-2);border-bottom:1px solid var(--line-strong);}
+  .gallery-frame-bar span{width:7px;height:7px;border-radius:50%;background:var(--line-strong);}
+  .gallery-frame-bar em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-left:8px;}
+  .gallery-frame img{flex:1;min-height:0;width:100%;object-fit:cover;object-position:top center;display:block;}
+  .gallery-nav{position:absolute;right:16px;bottom:16px;display:flex;align-items:center;gap:12px;z-index:2;}
+  .gallery-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(10,10,12,.55);backdrop-filter:blur(6px);color:var(--paper);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;transition:border-color .2s ease,color .2s ease;}
+  .gallery-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .gallery-dots{display:flex;gap:6px;}
+  .gallery-dots span{width:5px;height:5px;border-radius:50%;background:rgba(243,241,236,0.35);cursor:pointer;transition:background .2s ease,transform .2s ease;}
+  .gallery-dots span.active{background:var(--accent);transform:scale(1.35);}
+
   .case-details{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px;margin-bottom:48px;}
   .case-block h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
   .case-block p{font-size:15px;color:var(--paper-dim);line-height:1.75;}
@@ -361,6 +386,8 @@
     .case-head{grid-template-columns:1fr;gap:12px;}
     .case-tags{justify-self:start;}
     .case-details{grid-template-columns:1fr;gap:32px;}
+    .work-group + .work-group{margin-top:96px;}
+    .gallery-nav{right:10px;bottom:10px;}
   }
 
   /* ============================================================
@@ -587,138 +614,197 @@
         <p class="section-note reveal">Quality over quantity — this is what's actually shipped, live, or in active build.</p>
       </div>
 
-      <div class="case-study reveal">
-        <div class="case-head">
-          <span class="case-num mono">01</span>
-          <h3>Emerald Prox</h3>
-          <div class="case-tags"><span>Real Estate</span><span>CRM</span><span>Flagship</span></div>
-        </div>
-        <p class="case-one-liner">A cinematic web platform and client CRM for a luxury real-estate channel-partner firm, with tiered proposals and INR commercial costings built in.</p>
+      <div class="work-group reveal">
+        <div class="work-group-label"><span>Completed</span><span class="work-group-rule"></span></div>
 
-        <div class="case-visual spotlight" id="featuredVisual">
-          <span class="case-visual-mark">Emerald Prox</span>
-          <span class="case-visual-caption">Visual case study — in production</span>
-          <span class="case-visual-corner tl"></span><span class="case-visual-corner tr"></span>
-          <span class="case-visual-corner bl"></span><span class="case-visual-corner br"></span>
+        <div class="case-study">
+          <div class="case-head">
+            <span class="case-num mono">01</span>
+            <h3>Xenovia OS</h3>
+            <div class="case-tags"><span>SaaS</span><span>Practice Management</span><span>AI Assistant</span></div>
+          </div>
+          <p class="case-one-liner">A full operating layer for Chartered Accountancy firms — compliance tracking, a self-healing deadline engine, billing, and an embedded AI assistant in one workspace.</p>
+          <div class="case-status"><span class="case-status-dot"></span>Completed build — not yet public</div>
+
+          <div class="case-visual case-visual-gallery spotlight" data-gallery>
+            <div class="gallery-track" data-gallery-track>
+              <figure class="gallery-frame">
+                <div class="gallery-frame-bar"><span></span><span></span><span></span><em>Xenovia OS</em></div>
+                <img src="xenovia-hero.jpg" alt="Xenovia OS — 'Run your firm with Absolute Clarity,' the intelligent operating layer for CA teams" loading="lazy">
+              </figure>
+              <figure class="gallery-frame">
+                <div class="gallery-frame-bar"><span></span><span></span><span></span><em>Master Dashboard</em></div>
+                <img src="xenovia-dashboard.jpg" alt="Xenovia OS Master Dashboard — compliance health, deadline rescue, revenue pressure, and Operator, Rescue, and Revenue modes" loading="lazy">
+              </figure>
+              <figure class="gallery-frame">
+                <div class="gallery-frame-bar"><span></span><span></span><span></span><em>Deadline War-Room</em></div>
+                <img src="xenovia-warroom.jpg" alt="Xenovia OS Deadline War-Room — self-healing deadline engine with rescue capacity and engine guidance" loading="lazy">
+              </figure>
+            </div>
+            <div class="gallery-nav">
+              <button type="button" class="gallery-btn" data-gallery-prev aria-label="Previous screen">←</button>
+              <div class="gallery-dots" data-gallery-dots><span class="active"></span><span></span><span></span></div>
+              <button type="button" class="gallery-btn" data-gallery-next aria-label="Next screen">→</button>
+            </div>
+          </div>
+
+          <div class="case-details">
+            <div class="case-block">
+              <h4>The Problem</h4>
+              <p>Chartered Accountancy firms run compliance deadlines, client work, billing, and staffing across disconnected spreadsheets and message threads — so a missed GST, Audit, or ITR deadline, or a piece of unbilled work, usually surfaces only after it's already a problem.</p>
+            </div>
+            <div class="case-block">
+              <h4>The Approach</h4>
+              <p>Instead of building separate tools for compliance, tasks, and billing, I designed the firm's day-to-day operations as one connected workspace — with an AI assistant, Auditron, sitting across every module rather than answering questions in isolation.</p>
+            </div>
+            <div class="case-block">
+              <h4>What I Built</h4>
+              <p>A Master Dashboard tracking compliance health, deadline rescue, and revenue pressure across the firm; a Deadline War-Room built around a self-healing deadline engine that simulates which GST, Audit, and ITR deadlines will slip if nobody intervenes and who has capacity to rescue them; and Auditron, an AI assistant embedded across the workspace.</p>
+            </div>
+            <div class="case-block">
+              <h4>Technology</h4>
+              <div class="case-stack"><span>Practice Management OS</span><span>Compliance Automation</span><span>AI Assistant</span></div>
+            </div>
+          </div>
         </div>
 
-        <div class="case-details">
-          <div class="case-block">
-            <h4>The Problem</h4>
-            <p>A luxury real-estate channel-partner firm needed a client-facing presence and internal workflow that matched the caliber of the properties they sell — most tools in the space feel like spreadsheets, not showcases.</p>
+        <div class="case-study">
+          <div class="case-head">
+            <span class="case-num mono">02</span>
+            <h3>Thathvah</h3>
+            <div class="case-tags"><span>Brand</span><span>Web Design</span><span>Agri &amp; Wellness</span></div>
           </div>
-          <div class="case-block">
-            <h4>The Approach</h4>
-            <p>Rather than bolt a CRM onto a generic template, I designed the client experience and the internal tooling as one connected system — cinematic on the front end, structured underneath it.</p>
+          <p class="case-one-liner">A brand and web presence for a Karnataka-based consultancy distributing natural soursop products and organic Fish Amino Acid fertilizer.</p>
+          <a href="https://thathvah.com" target="_blank" rel="noopener" class="case-flag">Live at thathvah.com ↗</a>
+
+          <div class="case-visual case-visual-photo spotlight">
+            <img src="thathvah-hero.jpg" alt="Thathvah homepage — Nature's Intuition" loading="lazy">
           </div>
-          <div class="case-block">
-            <h4>What I Built</h4>
-            <p>A cinematic web platform paired with a client CRM, supporting tiered proposals with INR commercial costings built directly into the workflow.</p>
+
+          <div class="case-details">
+            <div class="case-block">
+              <h4>The Problem</h4>
+              <p>Small, genuinely natural agri-wellness brands get lost online next to mass-market products making the same "natural" claims with none of the substance behind them. Thathvah needed a site that read as premium and trustworthy without borrowing the usual organic-store visual clichés.</p>
+            </div>
+            <div class="case-block">
+              <h4>The Approach</h4>
+              <p>Built the brand around restraint and provenance instead of a typical catalog grid — large product photography, plain language about how each product is actually made, and an editorial layout throughout.</p>
+            </div>
+            <div class="case-block">
+              <h4>What I Built</h4>
+              <p>A two-product brand site — Soursop (herbal wellness) and Fish Amino Acid (organic plant nutrition, made through traditional fermentation) — distributed from Beltangadi, Karnataka.</p>
+            </div>
+            <div class="case-block">
+              <h4>Technology</h4>
+              <div class="case-stack"><span>Brand Identity</span><span>Web Design &amp; Development</span></div>
+            </div>
           </div>
-          <div class="case-block">
-            <h4>Technology</h4>
-            <div class="case-stack"><span>Three.js</span><span>GSAP</span><span>Lenis</span></div>
+        </div>
+
+        <div class="case-study">
+          <div class="case-head">
+            <span class="case-num mono">03</span>
+            <h3>Ost-Rich Interiors</h3>
+            <div class="case-tags"><span>Interior Design</span><span>Co-Founded</span><span>Brand &amp; Web</span></div>
+          </div>
+          <p class="case-one-liner">A luxury interior design studio I co-founded — shaping communication, coordination, and team building alongside its brand and web presence.</p>
+          <a href="https://ostrichinteriors.com" target="_blank" rel="noopener" class="case-flag">Live at ostrichinteriors.com ↗</a>
+
+          <div class="case-visual case-visual-photo spotlight">
+            <img src="ostrich-manifesto.jpg" alt="Ost-Rich Interiors — manifesto: luxury should feel enveloping, not performative" loading="lazy">
+          </div>
+
+          <div class="case-details">
+            <div class="case-block">
+              <h4>The Problem</h4>
+              <p>Luxury interior studios often market with spectacle — heavy finishes, glossy renders — when the clients they're actually chasing want restraint and material honesty. Ost-Rich needed a presence built on its own manifesto: "luxury should feel enveloping, not performative."</p>
+            </div>
+            <div class="case-block">
+              <h4>The Approach</h4>
+              <p>As one of three co-founders — alongside creative direction and material &amp; finishes direction — my focus is communication, coordination, and team building. That same discipline shaped how the studio presents itself online: composed and unhurried, nothing announcing itself.</p>
+            </div>
+            <div class="case-block">
+              <h4>What I Built</h4>
+              <p>The studio's brand and web presence — manifesto, philosophy, and process laid out in full, real project work including LemonTree Coorg (villa &amp; hospitality, Coorg — completed), and a signature-qualities system running through the whole site.</p>
+            </div>
+            <div class="case-block">
+              <h4>Technology</h4>
+              <div class="case-stack"><span>Brand Identity</span><span>Web Design &amp; Development</span></div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="case-study reveal">
-        <div class="case-head">
-          <span class="case-num mono">02</span>
-          <h3>Doondo</h3>
-          <div class="case-tags"><span>Marketplace</span><span>Dashboard</span></div>
-        </div>
-        <p class="case-one-liner">An employer-facing dashboard for blue-collar gig hiring in Bengaluru — handling matching, scheduling, and worker management.</p>
+      <div class="work-group reveal">
+        <div class="work-group-label"><span>In Active Build</span><span class="work-group-rule"></span></div>
 
-        <div class="case-visual spotlight">
-          <span class="case-visual-mark">Doondo</span>
-          <span class="case-visual-caption">Visual case study — in production</span>
-          <span class="case-visual-corner tl"></span><span class="case-visual-corner tr"></span>
-          <span class="case-visual-corner bl"></span><span class="case-visual-corner br"></span>
-        </div>
+        <div class="case-study">
+          <div class="case-head">
+            <span class="case-num mono">01</span>
+            <h3>Emerald Prox</h3>
+            <div class="case-tags"><span>Real Estate</span><span>CRM</span><span>Flagship</span></div>
+          </div>
+          <p class="case-one-liner">A cinematic web platform and client CRM for a luxury real-estate channel-partner firm, with tiered proposals and INR commercial costings built in.</p>
 
-        <div class="case-details">
-          <div class="case-block">
-            <h4>The Problem</h4>
-            <p>Blue-collar hiring in Bengaluru runs largely on word-of-mouth and informal networks — employers have no reliable, structured way to find, schedule, and manage gig workers at scale.</p>
+          <div class="case-visual spotlight" id="featuredVisual">
+            <span class="case-visual-mark">Emerald Prox</span>
+            <span class="case-visual-caption">Visual case study — in production</span>
+            <span class="case-visual-corner tl"></span><span class="case-visual-corner tr"></span>
+            <span class="case-visual-corner bl"></span><span class="case-visual-corner br"></span>
           </div>
-          <div class="case-block">
-            <h4>The Approach</h4>
-            <p>Built the employer's side of the marketplace first — the dashboard they'd actually use daily — so the core hiring workflow could be tested and refined before adding growth-side features.</p>
-          </div>
-          <div class="case-block">
-            <h4>What I Built</h4>
-            <p>An employer-facing dashboard handling worker matching, shift scheduling, and ongoing workforce management for blue-collar gig hiring.</p>
-          </div>
-          <div class="case-block">
-            <h4>Technology</h4>
-            <div class="case-stack"><span>Web Platform</span><span>Employer Dashboard</span></div>
-          </div>
-        </div>
-      </div>
 
-      <div class="case-study reveal">
-        <div class="case-head">
-          <span class="case-num mono">03</span>
-          <h3>Thathvah</h3>
-          <div class="case-tags"><span>Brand</span><span>Web Design</span><span>Agri &amp; Wellness</span></div>
-        </div>
-        <p class="case-one-liner">A brand and web presence for a Karnataka-based consultancy distributing natural soursop products and organic Fish Amino Acid fertilizer.</p>
-        <a href="https://thathvah.com" target="_blank" rel="noopener" class="case-flag">Live at thathvah.com ↗</a>
-
-        <div class="case-visual case-visual-photo spotlight">
-          <img src="thathvah-hero.jpg" alt="Thathvah homepage — Nature's Intuition" loading="lazy">
+          <div class="case-details">
+            <div class="case-block">
+              <h4>The Problem</h4>
+              <p>A luxury real-estate channel-partner firm needed a client-facing presence and internal workflow that matched the caliber of the properties they sell — most tools in the space feel like spreadsheets, not showcases.</p>
+            </div>
+            <div class="case-block">
+              <h4>The Approach</h4>
+              <p>Rather than bolt a CRM onto a generic template, I designed the client experience and the internal tooling as one connected system — cinematic on the front end, structured underneath it.</p>
+            </div>
+            <div class="case-block">
+              <h4>What I Built</h4>
+              <p>A cinematic web platform paired with a client CRM, supporting tiered proposals with INR commercial costings built directly into the workflow.</p>
+            </div>
+            <div class="case-block">
+              <h4>Technology</h4>
+              <div class="case-stack"><span>Three.js</span><span>GSAP</span><span>Lenis</span></div>
+            </div>
+          </div>
         </div>
 
-        <div class="case-details">
-          <div class="case-block">
-            <h4>The Problem</h4>
-            <p>Small, genuinely natural agri-wellness brands get lost online next to mass-market products making the same "natural" claims with none of the substance behind them. Thathvah needed a site that read as premium and trustworthy without borrowing the usual organic-store visual clichés.</p>
+        <div class="case-study">
+          <div class="case-head">
+            <span class="case-num mono">02</span>
+            <h3>Doondo</h3>
+            <div class="case-tags"><span>Marketplace</span><span>Dashboard</span></div>
           </div>
-          <div class="case-block">
-            <h4>The Approach</h4>
-            <p>Built the brand around restraint and provenance instead of a typical catalog grid — large product photography, plain language about how each product is actually made, and an editorial layout throughout.</p>
-          </div>
-          <div class="case-block">
-            <h4>What I Built</h4>
-            <p>A two-product brand site — Soursop (herbal wellness) and Fish Amino Acid (organic plant nutrition, made through traditional fermentation) — distributed from Beltangadi, Karnataka.</p>
-          </div>
-          <div class="case-block">
-            <h4>Technology</h4>
-            <div class="case-stack"><span>Brand Identity</span><span>Web Design &amp; Development</span></div>
-          </div>
-        </div>
-      </div>
+          <p class="case-one-liner">An employer-facing dashboard for blue-collar gig hiring in Bengaluru — handling matching, scheduling, and worker management.</p>
 
-      <div class="case-study reveal">
-        <div class="case-head">
-          <span class="case-num mono">04</span>
-          <h3>Ost-Rich Interiors</h3>
-          <div class="case-tags"><span>Interior Design</span><span>Co-Founded</span><span>Brand &amp; Web</span></div>
-        </div>
-        <p class="case-one-liner">A luxury interior design studio I co-founded — shaping communication, coordination, and team building alongside its brand and web presence.</p>
-        <a href="https://ostrichinteriors.com" target="_blank" rel="noopener" class="case-flag">Live at ostrichinteriors.com ↗</a>
+          <div class="case-visual spotlight">
+            <span class="case-visual-mark">Doondo</span>
+            <span class="case-visual-caption">Visual case study — in production</span>
+            <span class="case-visual-corner tl"></span><span class="case-visual-corner tr"></span>
+            <span class="case-visual-corner bl"></span><span class="case-visual-corner br"></span>
+          </div>
 
-        <div class="case-visual case-visual-photo spotlight">
-          <img src="ostrich-manifesto.jpg" alt="Ost-Rich Interiors — manifesto: luxury should feel enveloping, not performative" loading="lazy">
-        </div>
-
-        <div class="case-details">
-          <div class="case-block">
-            <h4>The Problem</h4>
-            <p>Luxury interior studios often market with spectacle — heavy finishes, glossy renders — when the clients they're actually chasing want restraint and material honesty. Ost-Rich needed a presence built on its own manifesto: "luxury should feel enveloping, not performative."</p>
-          </div>
-          <div class="case-block">
-            <h4>The Approach</h4>
-            <p>As one of three co-founders — alongside creative direction and material &amp; finishes direction — my focus is communication, coordination, and team building. That same discipline shaped how the studio presents itself online: composed and unhurried, nothing announcing itself.</p>
-          </div>
-          <div class="case-block">
-            <h4>What I Built</h4>
-            <p>The studio's brand and web presence — manifesto, philosophy, and process laid out in full, real project work including LemonTree Coorg (villa &amp; hospitality, Coorg — completed), and a signature-qualities system running through the whole site.</p>
-          </div>
-          <div class="case-block">
-            <h4>Technology</h4>
-            <div class="case-stack"><span>Brand Identity</span><span>Web Design &amp; Development</span></div>
+          <div class="case-details">
+            <div class="case-block">
+              <h4>The Problem</h4>
+              <p>Blue-collar hiring in Bengaluru runs largely on word-of-mouth and informal networks — employers have no reliable, structured way to find, schedule, and manage gig workers at scale.</p>
+            </div>
+            <div class="case-block">
+              <h4>The Approach</h4>
+              <p>Built the employer's side of the marketplace first — the dashboard they'd actually use daily — so the core hiring workflow could be tested and refined before adding growth-side features.</p>
+            </div>
+            <div class="case-block">
+              <h4>What I Built</h4>
+              <p>An employer-facing dashboard handling worker matching, shift scheduling, and ongoing workforce management for blue-collar gig hiring.</p>
+            </div>
+            <div class="case-block">
+              <h4>Technology</h4>
+              <div class="case-stack"><span>Web Platform</span><span>Employer Dashboard</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -853,7 +939,7 @@
         <div class="arc-item reveal">
           <span class="arc-tag">Product</span>
           <h3>Where it's headed</h3>
-          <p>Now building real products and ventures — Emerald Prox, Doondo, Thathvah, and Ost-Rich Interiors — where financial judgment and technical execution meet.</p>
+          <p>Now building real products and ventures — Xenovia OS, Emerald Prox, Doondo, Thathvah, and Ost-Rich Interiors — where financial judgment and technical execution meet.</p>
         </div>
       </div>
     </div>
@@ -1104,6 +1190,38 @@
       });
     });
   }
+
+  /* ---------- Work gallery (multi-frame case visuals) ---------- */
+  document.querySelectorAll('[data-gallery]').forEach(function(gallery){
+    var track = gallery.querySelector('[data-gallery-track]');
+    var frames = Array.prototype.slice.call(track.children);
+    var dots = Array.prototype.slice.call(gallery.querySelectorAll('[data-gallery-dots] span'));
+    var prevBtn = gallery.querySelector('[data-gallery-prev]');
+    var nextBtn = gallery.querySelector('[data-gallery-next]');
+    var current = 0;
+
+    function setActive(i){
+      dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+    }
+    function goTo(i){
+      current = Math.max(0, Math.min(frames.length - 1, i));
+      track.scrollTo({ left: frames[current].offsetLeft, behavior: reduceMotion ? 'auto' : 'smooth' });
+      setActive(current);
+    }
+    if(prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+    dots.forEach(function(d, idx){ d.addEventListener('click', function(){ goTo(idx); }); });
+
+    var scrollTimer;
+    track.addEventListener('scroll', function(){
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function(){
+        var idx = Math.round(track.scrollLeft / track.clientWidth);
+        current = Math.max(0, Math.min(frames.length - 1, idx));
+        setActive(current);
+      }, 80);
+    });
+  });
 
   /* ---------- Spotlight cursor glow on cards ---------- */
   if(hasFinePointer){
