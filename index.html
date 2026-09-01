@@ -312,7 +312,8 @@
   .case-tags{display:flex;gap:10px;flex-wrap:wrap;justify-self:end;}
   .case-tags span{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);border:1px solid var(--line);padding:5px 12px;border-radius:100px;}
   .case-one-liner{font-size:clamp(16px,1.6vw,20px);color:var(--paper-dim);max-width:60ch;margin-bottom:56px;}
-  .case-flag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.35);padding:5px 12px;border-radius:100px;margin-bottom:56px;}
+  .case-flag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.35);padding:5px 12px;border-radius:100px;margin-bottom:56px;transition:background .25s ease, color .25s ease;}
+  a.case-flag:hover{background:var(--accent);color:var(--bg);}
 
   .case-visual{
     aspect-ratio:16/9;
@@ -347,6 +348,10 @@
   .case-visual-corner.tr{top:16px;right:16px;border-top:1px solid var(--line-strong);border-right:1px solid var(--line-strong);}
   .case-visual-corner.bl{bottom:16px;left:16px;border-bottom:1px solid var(--line-strong);border-left:1px solid var(--line-strong);}
   .case-visual-corner.br{bottom:16px;right:16px;border-bottom:1px solid var(--line-strong);border-right:1px solid var(--line-strong);}
+
+  .case-visual-split{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line-strong);}
+  .case-visual-split img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;}
+  @media (max-width:600px){ .case-visual.case-visual-split{grid-template-columns:1fr;aspect-ratio:auto;} .case-visual-split img{aspect-ratio:4/3;} }
 
   .case-details{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 56px;margin-bottom:48px;}
   .case-block h4{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
@@ -570,9 +575,9 @@
       <div class="section-head">
         <div>
           <span class="section-eyebrow reveal">02 — Work</span>
-          <h2 class="section-title reveal">Two products, built where finance meets product.</h2>
+          <h2 class="section-title reveal">Products built, and a studio co-founded.</h2>
         </div>
-        <p class="section-note reveal">Quality over quantity — this is what's actually shipped or in active build.</p>
+        <p class="section-note reveal">Quality over quantity — this is what's actually shipped, live, or in active build.</p>
       </div>
 
       <div class="case-study reveal">
@@ -641,6 +646,76 @@
           <div class="case-block">
             <h4>Technology</h4>
             <div class="case-stack"><span>Web Platform</span><span>Employer Dashboard</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-study reveal">
+        <div class="case-head">
+          <span class="case-num mono">03</span>
+          <h3>Thathvah</h3>
+          <div class="case-tags"><span>Brand</span><span>Web Design</span><span>Agri &amp; Wellness</span></div>
+        </div>
+        <p class="case-one-liner">A brand and web presence for a Karnataka-based consultancy distributing natural soursop products and organic Fish Amino Acid fertilizer.</p>
+        <a href="https://thathvah.com" target="_blank" rel="noopener" class="case-flag">Live at thathvah.com ↗</a>
+
+        <div class="case-visual case-visual-split spotlight">
+          <img src="thathvah-hero.jpg" alt="Thathvah homepage — Nature's Intuition" loading="lazy">
+          <img src="thathvah-products.jpg" alt="Thathvah product section — Soursop and Fish Amino Acid" loading="lazy">
+        </div>
+
+        <div class="case-details">
+          <div class="case-block">
+            <h4>The Problem</h4>
+            <p>Small, genuinely natural agri-wellness brands get lost online next to mass-market products making the same "natural" claims with none of the substance behind them. Thathvah needed a site that read as premium and trustworthy without borrowing the usual organic-store visual clichés.</p>
+          </div>
+          <div class="case-block">
+            <h4>The Approach</h4>
+            <p>Built the brand around restraint and provenance instead of a typical catalog grid — large product photography, plain language about how each product is actually made, and an editorial layout throughout.</p>
+          </div>
+          <div class="case-block">
+            <h4>What I Built</h4>
+            <p>A two-product brand site — Soursop (herbal wellness) and Fish Amino Acid (organic plant nutrition, made through traditional fermentation) — distributed from Beltangadi, Karnataka.</p>
+          </div>
+          <div class="case-block">
+            <h4>Technology</h4>
+            <div class="case-stack"><span>Brand Identity</span><span>Web Design &amp; Development</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-study reveal">
+        <div class="case-head">
+          <span class="case-num mono">04</span>
+          <h3>Ost-Rich Interiors</h3>
+          <div class="case-tags"><span>Interior Design</span><span>Co-Founded</span><span>Brand &amp; Web</span></div>
+        </div>
+        <p class="case-one-liner">A luxury interior design studio I co-founded — leading client experience and coordination while shaping its brand and web presence.</p>
+        <a href="https://ostrichinteriors.com" target="_blank" rel="noopener" class="case-flag">Live at ostrichinteriors.com ↗</a>
+
+        <div class="case-visual spotlight">
+          <span class="case-visual-mark">Ost-Rich</span>
+          <span class="case-visual-caption">Visual case study — in production</span>
+          <span class="case-visual-corner tl"></span><span class="case-visual-corner tr"></span>
+          <span class="case-visual-corner bl"></span><span class="case-visual-corner br"></span>
+        </div>
+
+        <div class="case-details">
+          <div class="case-block">
+            <h4>The Problem</h4>
+            <p>Luxury interior studios often market with spectacle — heavy finishes, glossy renders — when the clients they're chasing actually want restraint and material honesty. Ost-Rich needed a presence that matched its own philosophy: luxury that feels enveloping, not performative.</p>
+          </div>
+          <div class="case-block">
+            <h4>The Approach</h4>
+            <p>As one of three co-founders — leading client experience and coordination alongside creative and material direction — I helped shape how the studio presents itself: architectural calm over spectacle, in the work and in the site itself.</p>
+          </div>
+          <div class="case-block">
+            <h4>What I Built</h4>
+            <p>The studio's brand and web presence, built around large-format imagery and restrained typography, featuring real project work including LemonTree Coorg — a villa and hospitality project in Coorg.</p>
+          </div>
+          <div class="case-block">
+            <h4>Technology</h4>
+            <div class="case-stack"><span>Brand Identity</span><span>Web Design &amp; Development</span></div>
           </div>
         </div>
       </div>
@@ -775,7 +850,7 @@
         <div class="arc-item reveal">
           <span class="arc-tag">Product</span>
           <h3>Where it's headed</h3>
-          <p>Now building real products — Emerald Prox and Doondo — where financial judgment and technical execution meet.</p>
+          <p>Now building real products and ventures — Emerald Prox, Doondo, Thathvah, and Ost-Rich Interiors — where financial judgment and technical execution meet.</p>
         </div>
       </div>
     </div>
